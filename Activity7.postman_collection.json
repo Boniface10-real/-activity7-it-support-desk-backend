@@ -1,0 +1,102 @@
+{
+  "info": {
+    "name": "ICT251 Activity 7 - IT Support Desk API",
+    "description": "CRUD and validation requests for the Activity 7 backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "recordId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "API guide",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/"
+      }
+    },
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Get all records",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records"
+      }
+    },
+    {
+      "name": "Get one record",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Create record",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Cannot connect to campus Wi-Fi\",\n  \"category\": \"Network\",\n  \"description\": \"My laptop cannot connect to the campus wireless network.\",\n  \"status\": \"Pending\"\n}"
+        },
+        "url": "{{baseUrl}}/api/records"
+      }
+    },
+    {
+      "name": "Update record",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Campus Wi-Fi connection issue\",\n  \"category\": \"Network\",\n  \"description\": \"My laptop still cannot connect to the campus wireless network.\",\n  \"status\": \"In progress\"\n}"
+        },
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Delete record",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/records/{{recordId}}"
+      }
+    },
+    {
+      "name": "Invalid ID test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/records/abc"
+      }
+    },
+    {
+      "name": "Unknown route test",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/not-a-route"
+      }
+    }
+  ]
+}

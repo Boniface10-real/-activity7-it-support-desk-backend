@@ -1,0 +1,12 @@
+Activity7_Backend/
+  server.js
+  db.js
+  schema.sql
+  seed.sql
+  package.json
+  .env.example
+  .gitignore
+  routes/records.js
+  README.md
+  Activity7.postman_collection.json
+  docs/TESTING_CHECKLIST.md
